@@ -56,9 +56,9 @@ jobs:
           EOF
           kubectl delete secret django-web-env-prod
           kubectl create secret generic django-web-env-prod --from-env-file=web/.env.prod
-      # - name: Deployment image
-      #   run: |
-      #      kubectl apply -f k8s/apps/django-k8s-web.yaml
+      - name: Deployment image
+        run: |
+           kubectl apply -f k8s/apps/django-k8s-web.yaml
       - name: Update Deployment image
         run: |
           kubectl set image deployment/django-k8s-web-deployment django-k8s-web=registry.digitalocean.com/cr-k8s/django-k8s-web:${GITHUB_SHA::7}-${GITHUB_RUN_ID::5}
