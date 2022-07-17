@@ -26,8 +26,8 @@ spec:
             value: "3000"
         ports:
         - containerPort: 3000
-      imagePullSecrets:
-        - name: do-registry  
+        imagePullSecrets:
+        - name: cr-k8s 
 
 
 ---
