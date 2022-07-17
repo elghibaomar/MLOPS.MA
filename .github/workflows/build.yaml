@@ -26,9 +26,9 @@ jobs:
         run: |
               docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
       - name: Build the Docker image
-        working-directory: ./web
+        # working-directory: ./web
         run: |
-                docker build -f Dockerfile \
+                docker build . --file web/Dockerfile \
                   -t elghibaomar/django-k8s-web:latest \
                   -t elghibaomar/django-k8s-web:${GITHUB_SHA::7}-${GITHUB_RUN_ID::5} \
             
