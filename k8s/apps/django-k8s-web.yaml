@@ -20,14 +20,14 @@ spec:
         imagePullPolicy: Always
         envFrom:
           - secretRef:
-              name: django-web-env-prod
+              name: django-k8s-web-prod-env
         env:
           - name: PORT
-            value: "3000"
+            value: "8002"
         ports:
-        - containerPort: 3000
-        imagePullSecrets:
-        - name: cr-k8s 
+        - containerPort: 8002
+      imagePullSecrets:
+        - name: cr-k8s   
 
 
 ---
@@ -41,6 +41,6 @@ spec:
     - name: http
       protocol: TCP
       port: 80
-      targetPort: 3000
+      targetPort: 8002
   selector:
     app: django-k8s-web-deployment
