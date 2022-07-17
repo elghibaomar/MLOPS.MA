@@ -29,12 +29,12 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 #DEBUG = str(os.environ.get("DEBUG")) == "1"
 DEBUG = False
 
-ENV_ALLOWED_HOST = os.environ.get("ENV_ALLOWE_HOST")
+# ENV_ALLOWED_HOST = os.environ.get("ENV_ALLOWE_HOST")
 
-ALLOWED_HOSTS = ['165.227.245.122']
+ALLOWED_HOSTS = ['*']
 
-if ENV_ALLOWED_HOST :
-    ALLOWED_HOSTS = [ENV_ALLOWED_HOST]
+# if ENV_ALLOWED_HOST :
+#     ALLOWED_HOSTS = [ENV_ALLOWED_HOST]
 
 
 
