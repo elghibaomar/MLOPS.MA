@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 SUPERUSER_EMAIL=${DJANGO_SUPERUSER_EMAIL:-"admin@mlops.ma"}
