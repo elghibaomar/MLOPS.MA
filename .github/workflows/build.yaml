@@ -10,7 +10,7 @@ on:
 
 jobs:
   test_django_job:
-    uses: remosol/mlops-django/.github/workflows/test-django.yaml@omar
+    uses: elghibaomar/MLOPS.MA/.github/workflows/test-django.yaml@main
   build:
     runs-on: ubuntu-latest
     needs: [test_django_job]
