@@ -17,7 +17,7 @@ spec:
       containers:
       - name: django-k8s-web
         image: elghibaomar/django-k8s-web:latest
-        # imagePullPolicy: Always
+        imagePullPolicy: Always
         envFrom:
           - secretRef:
               name: django-web-env-prod
@@ -26,8 +26,8 @@ spec:
             value: "8002"
         ports:
         - containerPort: 8002
-      # imagePullSecrets:
-      #   - name: om-k8s   
+      imagePullSecrets:
+        - name: om-k8s   
 
 
 ---
