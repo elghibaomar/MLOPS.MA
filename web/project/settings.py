@@ -55,9 +55,7 @@ INSTALLED_APPS = [
 
 ]
 
-CORS_ALLOWED_ORIGINS = [
-    "http://196.77.127.181",
-]
+CORS_ALLOWED_ORIGINS = ['*'],
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
