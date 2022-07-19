@@ -18,23 +18,19 @@ jobs:
       CLUSTER_NAME: django-k8s
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Insall doctl
-        uses: digitalocean/action-doctl@v2
-        with:
-          token: ${{ secrets.DO_API_TOKEN_KEY }}
-      - name: Login to DO Container Registry with short-lived creds
-        run: doctl registry login --expiry-seconds 1200
-      - name: Build container image
+      - uses: actions/checkout@v2
+      - name: docker login
+        env:
+          DOCKER_USER: ${{secrets.DOCKER_USER}}
+          DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
+        run: |
+          docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
+      - name: Build the Docker image
         working-directory: ./web
-        run: |
-          docker build -f Dockerfile \
-            -t registry.digitalocean.com/om-k8s/django-k8s-web:latest \
-            -t registry.digitalocean.com/om-k8s/django-k8s-web:${GITHUB_SHA::7}-${GITHUB_RUN_ID::5} \
-            .
-      - name: Push image
-        run: |
-          docker push registry.digitalocean.com/om-k8s/django-k8s-web --all-tags
+        run: docker build . --file Dockerfile --tag elghibaomar/django-k8s-web:latest 
+      - name: Docker Push
+        run: docker push elghibaomar/vuejs-k8s-web-final:latest
+
       - name: K8s cluster kubeconfig file with/ short-lived creds
         run: |
           doctl kubernetes cluster kubeconfig save --expiry-seconds 600 ${{ env.CLUSTER_NAME }}
@@ -58,7 +54,7 @@ jobs:
           kubectl create secret generic django-web-env-prod --from-env-file=web/.env.prod
       - name: Update Deployment image
         run: |
-          kubectl set image deployment/django-k8s-web-deployment django-k8s-web=registry.digitalocean.com/om-k8s/django-k8s-web:${GITHUB_SHA::7}-${GITHUB_RUN_ID::5}
+          kubectl set image deployment/django-k8s-web-deployment django-k8s-web=elghibaomar/django-k8s-web:latest
       - name: Wait for rollout to finish
         run: |
           kubectl rollout status deployment/django-k8s-web-deployment
