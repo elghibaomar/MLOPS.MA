@@ -31,7 +31,7 @@ DEBUG = False
 
 # ENV_ALLOWED_HOST = os.environ.get("ENV_ALLOWE_HOST")
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['http://161.35.245.118']
 
 # if ENV_ALLOWED_HOST :
 #     ALLOWED_HOSTS = [ENV_ALLOWED_HOST]
@@ -55,7 +55,7 @@ INSTALLED_APPS = [
 
 ]
 
-CORS_ALLOW_ORIGINS=['http://134.209.139.187']
+CORS_ALLOW_ORIGINS=['http://161.35.245.118']
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
