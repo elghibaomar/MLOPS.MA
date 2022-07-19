@@ -54,9 +54,8 @@ INSTALLED_APPS = [
     'corsheaders',
 
 ]
-SECURE_CROSS_ORIGIN_OPENER_POLICY = None
 
-CORS_ALLOW_ALL_ORIGINS=True
+CORS_ALLOW_ORIGINS=['http://143.198.251.228']
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
