@@ -29,7 +29,7 @@ jobs:
         working-directory: ./web
         run: docker build . --file Dockerfile --tag elghibaomar/django-k8s-web:latest 
       - name: Docker Push
-        run: docker push elghibaomar/vuejs-k8s-web-final:latest
+        run: docker push elghibaomar/django-k8s-web:latest
 
       - name: K8s cluster kubeconfig file with/ short-lived creds
         run: |
