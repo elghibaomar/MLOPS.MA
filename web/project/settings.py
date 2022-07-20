@@ -27,13 +27,11 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = str(os.environ.get("DEBUG")) == "1"
-DEBUG = True
+DEBUG = False
 
 # ENV_ALLOWED_HOST = os.environ.get("ENV_ALLOWE_HOST")
 
-ALLOWED_HOSTS = ['*']
-CORS_ORIGIN_ALLOW_ALL = True
-
+# ALLOWED_HOSTS = ['*']
 # if ENV_ALLOWED_HOST :
 #     ALLOWED_HOSTS = [ENV_ALLOWED_HOST]
 
@@ -67,6 +65,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ORIGIN_ALLOW_ALL = True
+
 
 ROOT_URLCONF = 'project.urls'
 
