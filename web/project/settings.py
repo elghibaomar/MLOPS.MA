@@ -32,7 +32,15 @@ DEBUG = False
 # ENV_ALLOWED_HOST = os.environ.get("ENV_ALLOWE_HOST")
 
 ALLOWED_HOSTS = ['*']
-CORS_ORIGIN_ALLOW_ALL= True
+CORS_ORIGIN_WHITELIST = [
+    'http://161.35.245.118:8082',
+    'http://161.35.245.118',
+    '161.35.245.118',
+    'http://196.77.127.181',
+    'http://197.253.195.25'
+    '196.77.127.181',
+    '197.253.195.25'
+]
 
 # if ENV_ALLOWED_HOST :
 #     ALLOWED_HOSTS = [ENV_ALLOWED_HOST]
