@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'storages',
     'Email_Marketing',
     'rest_framework',
-    'rest_framework.authtoken',
+    # 'rest_framework.authtoken',
 ]
 
 
