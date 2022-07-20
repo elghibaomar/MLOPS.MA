@@ -31,17 +31,8 @@ DEBUG = False
 
 # ENV_ALLOWED_HOST = os.environ.get("ENV_ALLOWE_HOST")
 
-ALLOWED_HOSTS = ['*']
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOW_METHODS = [
-'DELETE',
-'GET',
-'OPTIONS',
-'PATCH',
-'POST',
-'PUT',
-]
-CORS_ALLOWED_ORIGINS = '*'
+
+# CORS_ALLOWED_ORIGINS = '*'
 
 # if ENV_ALLOWED_HOST :
 #     ALLOWED_HOSTS = [ENV_ALLOWED_HOST]
@@ -75,6 +66,18 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+]
+
+
+ALLOWED_HOSTS = ['*']
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_METHODS = [
+'DELETE',
+'GET',
+'OPTIONS',
+'PATCH',
+'POST',
+'PUT',
 ]
 
 ROOT_URLCONF = 'project.urls'
