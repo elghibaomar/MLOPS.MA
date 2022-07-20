@@ -32,6 +32,7 @@ DEBUG = False
 # ENV_ALLOWED_HOST = os.environ.get("ENV_ALLOWE_HOST")
 
 ALLOWED_HOSTS = ['*']
+CORS_ORIGIN_ALLOW_ALL= True
 
 # if ENV_ALLOWED_HOST :
 #     ALLOWED_HOSTS = [ENV_ALLOWED_HOST]
@@ -41,6 +42,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,14 +53,11 @@ INSTALLED_APPS = [
     'Email_Marketing',
     'rest_framework',
     'rest_framework.authtoken',
-    'corsheaders',
-
 ]
 
-CORS_ALLOW_ORIGINS=['*']
+
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -66,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'project.urls'
