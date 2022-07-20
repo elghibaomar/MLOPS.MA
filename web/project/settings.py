@@ -27,7 +27,7 @@ SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 #DEBUG = str(os.environ.get("DEBUG")) == "1"
-DEBUG = True
+DEBUG = False
 
 # ENV_ALLOWED_HOST = os.environ.get("ENV_ALLOWE_HOST")
 
@@ -39,8 +39,6 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
-CORS_ORIGIN_ALLOW_ALL = True   
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -53,14 +51,14 @@ INSTALLED_APPS = [
     'Email_Marketing',
     'rest_framework',
     'rest_framework.authtoken',
-    # 'corsheaders',
+    'corsheaders',
 
 ]
 
-# CORS_ALLOW_ORIGINS=['http://161.35.245.118']
+CORS_ALLOW_ORIGINS=['*']
 
 MIDDLEWARE = [
-    # 'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
