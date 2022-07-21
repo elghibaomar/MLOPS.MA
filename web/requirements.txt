@@ -8,3 +8,4 @@ boto3
 django-rest-framework
 django-cors-headers
 pandas
+django-extensions
