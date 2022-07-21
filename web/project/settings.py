@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'storages',
     'Email_Marketing',
     'rest_framework',
+    'django_extensions',
     # 'rest_framework.authtoken',
 ]
 
